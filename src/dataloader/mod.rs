@@ -63,7 +63,6 @@ use std::future::Future;
 use std::{
     any::{Any, TypeId},
     borrow::Cow,
-    collections::{HashMap, HashSet},
     hash::Hash,
     sync::{
         atomic::{AtomicBool, Ordering},
@@ -71,6 +70,10 @@ use std::{
     },
     time::Duration,
 };
+#[cfg(not(feature = "dataloader_ahash"))]
+use std::collections::{HashMap, HashSet};
+#[cfg(feature = "dataloader_ahash")]
+use ahash::{AHashMap as HashMap, AHashSet as HashSet};
 
 pub use cache::{CacheFactory, CacheStorage, HashMapCache, LruCache, NoCache};
 use fnv::FnvHashMap;
