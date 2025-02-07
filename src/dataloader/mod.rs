@@ -73,7 +73,7 @@ use std::{
 #[cfg(not(feature = "dataloader_ahash"))]
 use std::collections::{HashMap, HashSet};
 #[cfg(feature = "dataloader_ahash")]
-use ahash::{AHashMap as HashMap, AHashSet as HashSet};
+use ahash::{HashMap, HashMapExt, HashSet, HashSetExt};
 
 pub use cache::{CacheFactory, CacheStorage, HashMapCache, LruCache, NoCache};
 use fnv::FnvHashMap;
